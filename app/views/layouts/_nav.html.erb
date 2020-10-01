@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <ul class="user-info">
+    <% if current_user %>
+      <li><%= current_user.name %></li>
+      <li><%= link_to sign_out_path, "Sign Out" %></li>
+    <% else %>
+      <li><%= link_to sign_up_path, "Sign Up" %></li>
+      <li><%= link_to sign_in_path, "Sign In" %></li>
+    <% end %>
+  </ul>
+</nav>
+
+<% flash.each do |name, message| %>
+  <%= content_tag :nav, message, :class => " flash_#{name} "%>
+<% end %>
