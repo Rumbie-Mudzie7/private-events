@@ -6,6 +6,11 @@
     <%= text_field_tag :name, params[:name] %>
   </p>
 
+  <p>
+    <%= label_tag :email%>
+    <%= email_field_tag :email, params[:email] %>
+  </p>
+
   <p class="button">
     <%= submit_tag "Sign In" %>
   </p>
