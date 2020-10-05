@@ -19,23 +19,8 @@
       <%= render 'layouts/nav'%>
     </header>
 
-    <% if flash[:notice] %>
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <p class="text-center"><%= notice %></p>
-
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-    <% elsif flash[:alert] %>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p class="text-center"><%= alert %></p>
-
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
     <% end %>
 
     <%= yield %>
