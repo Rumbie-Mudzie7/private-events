@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :static
   resources :sessions, only: %i[ destroy new create ]
   resources :users, only: %i[new create show]
