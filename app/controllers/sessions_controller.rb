@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      redirect_to root_url, notice: 'You\'ve logged in successfully!'
+      redirect_to new_event_path, notice: 'You\'ve logged in successfully!'
     else
       flash.now[:alert] = 'Name or email is invalid'
       render :new
