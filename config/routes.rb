@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'event_attendings/create'
   resources :events
   resources :static
   resources :sessions, only: %i[ destroy new create ]

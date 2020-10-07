@@ -2,7 +2,7 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @event.title %>
+  <%= @event.event_attendees.each { |attendee| attendee.name } %>
 </p>
 
 <p>
