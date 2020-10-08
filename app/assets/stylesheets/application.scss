@@ -1,9 +1,5 @@
 @import 'bootstrap/scss/bootstrap';
-
-.alert {
-  color: red;
-}
-
-.notice {
-  color: green;
-}
+@import 'partials/global_variables';
+@import 'partials/notifications';
+@import 'partials/homepage';
+@import 'partials/body';
