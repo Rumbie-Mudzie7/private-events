@@ -1,18 +1,26 @@
-<h1 class="title">Showing upcoming events:</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm">
+      <h2 class="title">Showing upcoming events:</h2>
 
-<% Event.upcoming_events.each do |event| %>
-  <ul>
-    <li class="event"><%= link_to event.title, event_path(event) %></li>
-  </ul>
-<% end %>
+      <% Event.upcoming_events.each do |event| %>
+        <ul>
+          <li class="event text-info"><%= link_to event.title, event_path(event) %></li>
+        </ul>
+      <% end %>
+    </div>
 
-<h2>Previously attended events: </h2>
+    <div class="col-sm">
+      <h2>Previously attended events: </h2>
 
-<% Event.previous_events.each do |event| %>
-  <ul>
-    <li class="event"><%= link_to event.title, event_path(event) %></li>
-  </ul>
-<% end %>
+      <% Event.previous_events.each do |event| %>
+        <ul>
+          <li class="event text-info"><%= link_to event.title, event_path(event) %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 

@@ -1,5 +1,7 @@
-<h1>New User</h1>
+<div class="container">
+  <h1 class="text-info mx-3">New User</h1>
 
-<%= render 'form', user: @user %>
+  <%= render 'form', user: @user %>
 
-<%= link_to 'Back', root_path %>
+  <%= link_to 'Back', root_path, class: "btn btn-info mt-3 mx-3" %>
+</div>

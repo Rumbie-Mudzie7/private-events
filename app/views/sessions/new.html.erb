@@ -1,17 +1,19 @@
-<h1> Sign In </h1>
+<div class="container sign_in">
+  <h1 class="text-info"> Sign In </h1>
 
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :name%>
-    <%= text_field_tag :name, params[:name] %>
-  </p>
+  <%= form_tag sessions_path do %>
+    <div class="form-group">
+      <%= label_tag :name%>
+      <%= text_field_tag :name, params[:name], class: "form-control" %>
+    </div>
 
-  <p>
-    <%= label_tag :email%>
-    <%= email_field_tag :email, params[:email] %>
-  </p>
+    <div class="form-group">
+      <%= label_tag :email%>
+      <%= email_field_tag :email, params[:email], class: "form-control" %>
+    </div>
 
-  <p class="button">
-    <%= submit_tag "Sign In" %>
-  </p>
-<% end %>
+    <div class="button">
+      <%= submit_tag "Sign In" %>
+    </div>
+  <% end %>
+</div>
