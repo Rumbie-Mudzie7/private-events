@@ -2,10 +2,10 @@
 
 ## Screenshot
 
-![Screenshot](app/assets/images/members_only_shot.png)
+![Screenshot](app/assets/images/private-events-shot.png)
 
 ## Live Demo
-[Live Demo Link](https://arcane-thicket-18116.herokuapp.com/) 
+[Live Demo Link]() 
 
 **Completed the necessary steps in building a private events site similar to Eventbrite, which allows users to create events and then manage user signups using the following criteria: 
 - Users can create events and send invitations and parties. 
@@ -62,8 +62,10 @@ Migrations were run to:
 - Add Fields to users
 - Create User model
 - Create Event model
-- Create Event_attendings model
-- Add creator_id to Post
+- Create Event_attending model
+- Add id for event to event_attending model
+- Add creator_id to event model
+- Add index on event_id in event attending model
 
 
 ## Prerequisites
