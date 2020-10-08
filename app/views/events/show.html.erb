@@ -1,10 +1,9 @@
 <h1> Created by: <%= @event.creator.name %> </h1>
 
-
-  <h3>People Joining The Event</h3>
-  <% @event.event_attendees.each do |attendee|%>
-    <p><%= attendee.name %></p>
-  <% end %>
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
 
 <p>
   <strong>Venue:</strong>
@@ -21,5 +20,11 @@
   <%= @event.date %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% if current_user == @event.creator %>
+   <%= link_to 'Edit', edit_event_path(@event) %> |
+   <%= link_to 'Update', edit_event_path(@event) %> |
+   <%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %> |
+   <%= link_to 'Back', events_path %>
+  <% else %>
+   <%= link_to 'Back', events_path %>
+<% end %>
