@@ -1,30 +1,28 @@
-<h1> Created by: <%= @event.creator.name %> </h1>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title"><%= @event.title %></h2>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+    <div class="card-body">
+      <p><%= @event.description %></p>
+    </div>
 
-<p>
-  <strong>Venue:</strong>
-  <%= @event.venue %>
-</p>
+    <div class="card-footer">
+      <h5>Venue: <small class="text-info"><%= @event.venue %></small></h5>
+      <h5>Date: <small class="text-info"><%= @event.date %></small></h5>
+      <h5>Created by: <small class="text-info">@<%= @event.creator.name %></small></h5>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<% if current_user == @event.creator %>
-   <%= link_to 'Edit', edit_event_path(@event) %> |
-   <%= link_to 'Update', edit_event_path(@event) %> |
-   <%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %> |
-   <%= link_to 'Back', events_path %>
-  <% else %>
-   <%= link_to 'Back', events_path %>
-<% end %>
+      <div class="control">
+        <% if current_user == @event.creator %>
+          <%= link_to 'Edit', edit_event_path(@event) %> |
+          <%= link_to 'Update', edit_event_path(@event) %> |
+          <%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Back', events_path %>
+        <% else %>
+          <%= link_to 'Back', events_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
