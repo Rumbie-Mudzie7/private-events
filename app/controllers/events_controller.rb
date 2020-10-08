@@ -4,12 +4,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @upcoming_events = Event.upcoming_events
+    @previous_events = Event.previous_events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -26,7 +28,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.created_events.build(event_params)
     
-      respond_to do |format|
+    respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
