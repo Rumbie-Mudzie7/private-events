@@ -1,9 +1,9 @@
 <h1>Events to attend:</h1>
 
-<% @user.attended_events.upcoming_events.each do |event| %>
+<% current_user.attended_events.previous_events.each do |event| %>
   <p><%= event.title %></p>
 <% end %>
 
-<% @user.attended_events.previous_events.each do |event| %>
+<% current_user.attended_events.upcoming_events.each do |event| %>
   <p><%= event.title %></p>
 <% end %>
