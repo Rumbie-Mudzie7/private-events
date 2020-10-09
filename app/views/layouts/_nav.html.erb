@@ -7,9 +7,10 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-    <% if user_signed_in?%>
+    <% if user_signed_in? %>
        <div class="navbar-nav">
           <button class="btn btn-md text-light">SignedIn As: <strong class="text-info"><%= current_user.name %></strong></button>
+          <%= link_to "My Events", user_path(current_user), class: "btn btn-md text-light", title: 'Click to Sign Out' %>
           <%= link_to "Create Event", new_event_path, class: "btn btn-md text-light", title: 'Click to New Event' %>
           <%= link_to "Explore Events", events_path, class: "btn btn-md text-light", title: 'Click to My Events' %>
           <%= link_to "Sign Out", sign_out_path, class: "btn btn-md text-light", title: 'Click to Sign Out' %>

@@ -14,21 +14,17 @@
       <h5>Created by: <small class="text-info">@<%= @event.creator.name %></small></h5>
 
       <div class="control">
-        <% if current_user == @event.creator %>
-          <%= link_to 'Edit', edit_event_path(@event) %> |
-          <%= link_to 'Update', edit_event_path(@event) %> |
-          <%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %> |
-          <%= link_to 'Back', events_path %>
-        <% else %>
-          <%= link_to 'Back', events_path %>
-        <% end %>
+        <%= edit_page(@event)%>
+        <%= update_page(@event)%>
+        <%= destroy_event(@event)%>
+        <%= link_to 'Back', events_path %>
       </div>
     </div>
   </div>
 
   <div class="attendees mt-4">
     <h3 class="title">People attending: </h3>
-    <% @event.event_attendees.each do |event| %>
+    <% @attendees.each do |event| %>
       <p class="mb-2"><%= event.name %></p>
     <% end %>
   </div>

@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @attendees = @event.event_attendees
   end
 
   # GET /events/new
@@ -26,15 +27,9 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.created_events.build(event_params)
-    @attendee = params[:event_attendings][:attendee_id]
     
     respond_to do |format|
       if @event.save
-        @attendee.each do |att|
-          unless att.empty?
-            @event.event_attendees << User.find(att)
-          end
-        end
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -47,8 +42,6 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    @attendee = params[:event_attendings][:attendee_id]
-
     respond_to do |format|
       if @event.update(event_params)
         @attendee.each do |att|

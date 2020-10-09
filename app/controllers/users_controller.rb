@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to new_event_path, notice: 'Signed up successfully!' }
+        format.html { redirect_to @user, notice: 'Signed up successfully!' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
