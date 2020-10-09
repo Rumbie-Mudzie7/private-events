@@ -1,7 +1,14 @@
 body {
     background-color: $main_default_color;
    
-    .card {
+    .container-fluid {
+        max-width: 1400px;
+        margin: auto;
+        border: 1px solid grey;
+        padding: 0 0 2rem 0;
+
+        .card {
         background: $card_background;
+        }
     }
 }

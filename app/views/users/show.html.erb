@@ -1,9 +1,46 @@
-<h1>Events to attend:</h1>
-
-<% current_user.attended_events.previous_events.each do |event| %>
-  <p><%= event.title %></p>
-<% end %>
-
-<% current_user.attended_events.upcoming_events.each do |event| %>
-  <p><%= event.title %></p>
-<% end %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="text-info">My Created Events:</h3>
+      <% @created_events.each do |event| %>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to event.title, event_path(event), class: "text-dark" %></div>
+          </div>
+          <div class="card-footer">
+            <p class="card-text">Venue: <small class="text-info"><%= event.venue %></small></p>
+            <p class="card-text">Date: <small class="text-info"><%= event.date %></small></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-sm mt-3">
+      <h3 class="text-info">Upcoming Events:</h3>
+      <% @upcoming_events.each do |event| %>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to event.title, event_path(event), class: "text-dark" %></div>
+          </div>
+          <div class="card-footer">
+            <p class="card-text">Venue: <small class="text-info"><%= event.venue %></small></p>
+            <p class="card-text">Date: <small class="text-info"><%= event.date %></small></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-sm mt-3">
+      <h3 class="text-info">Previously Attended Events:</h3>
+      <% @previously_attended_events.each do |event| %>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to event.title, event_path(event), class: "text-dark" %></div>
+          </div>
+          <div class="card-footer">
+            <p class="card-text">Venue: <small class="text-info"><%= event.venue %></small></p>
+            <p class="card-text">Date: <small class="text-info"><%= event.date %></small></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

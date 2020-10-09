@@ -25,4 +25,11 @@
       </div>
     </div>
   </div>
+
+  <div class="attendees mt-4">
+    <h3 class="title">People attending: </h3>
+    <% @event.event_attendees.each do |event| %>
+      <p class="mb-2"><%= event.name %></p>
+    <% end %>
+  </div>
 </div>
