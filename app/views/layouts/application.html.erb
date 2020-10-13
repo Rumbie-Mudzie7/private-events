@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrivateEvents</title>
+    <%# meta tag for responsiveness. %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%# Dynamic page title %>
+    <title><%= content_for?(:title) ? yeild(:title) : "PrivateEvents"%></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "PrivateEvents"%>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +14,16 @@
   </head>
 
   <body>
+  <div class="container-fluid">
+    <header>
+      <%= render 'layouts/nav'%>
+    </header>
+
+    <% flash.each do |name, message| %>
+      <div class="<%= name %> text-center bg-light"><%= message %></div>
+    <% end %>
+
     <%= yield %>
+  </div>
   </body>
 </html>
