@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title"><%= @event.title %></h2>
+    </div>
+
+    <div class="card-body">
+      <p><%= @event.description %></p>
+    </div>
+
+    <div class="card-footer">
+      <h5>Venue: <small class="text-info"><%= @event.venue %></small></h5>
+      <h5>Date: <small class="text-info"><%= @event.date %></small></h5>
+      <h5>Created by: <small class="text-info">@<%= @event.creator.name %></small></h5>
+
+      <div class="control">
+        <%= edit_page(@event)%>
+        <%= update_page(@event)%>
+        <%= destroy_event(@event)%>
+        <%= link_to 'Back', events_path %>
+      </div>
+    </div>
+  </div>
+
+  <div class="attendees mt-4">
+    <h3 class="title">People attending: </h3>
+    <% @attendees.each do |event| %>
+      <p class="mb-2"><%= event.name %></p>
+    <% end %>
+  </div>
+</div>

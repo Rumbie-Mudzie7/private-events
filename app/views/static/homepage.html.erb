@@ -1,0 +1,24 @@
+<div class="container mt-5 pt-2">
+  <div class="row">
+    <div class="col-sm">
+      <p>This homepage is a quick guide to show/help new visitors on how the app works.</p>
+      <p>First, you need to <%= link_to "Sign Up", new_user_path, class: "text-info"%> to create an account and view more details about an event or create an event.</p>
+      <p>If you already have an account, you can <%= link_to "Sign In", new_session_path, class: "text-info"%> using your email address.</p>
+    </div>
+
+    <div class="col-sm">
+      <% @events.each do |event| %>
+        <div class="card text-center mb-3">
+          <div class="card-header">
+            <h3 class="card-title"><%= event.title %></h3>
+          </div>
+          <div class="card-body">
+            <h5 class="card-text">Venue: <small class="text-info"><%= event.venue %></small></h5>
+            <h5 class="card-text">Date: <small class="text-info"><%= event.date %></small></h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

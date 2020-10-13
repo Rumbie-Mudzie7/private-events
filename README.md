@@ -2,10 +2,10 @@
 
 ## Screenshot
 
-![Screenshot](app/assets/images/members_only_shot.png)
+![Screenshot](app/assets/images/private-events-shot.png)
 
 ## Live Demo
-[Live Demo Link](https://arcane-thicket-18116.herokuapp.com/) 
+[Live Demo Link]() 
 
 **Completed the necessary steps in building a private events site similar to Eventbrite, which allows users to create events and then manage user signups using the following criteria: 
 - Users can create events and send invitations and parties. 
@@ -19,8 +19,8 @@
 
 Ruby
 Ruby on Rails
-Devise
 Sqlite3
+PostgresSQL
 
 
 ## Configurations
@@ -36,23 +36,22 @@ Sqlite3
 - Bootstrap
 
 
-## Rails gem dependencies
-- devise
-- simple_form
-- bettor_errors
+## Authentication procedure
+- Authentication from scratch
 
 ## Database configuration:
 1. Models
 - User
-- Post
+- Event
+- Event_attending
 
 2. Validations
 - User name, email and password validations for length and uniqueness.
-- Post title and content validations
+- Event title and description validations
 
 3. Associations
 - belongs_to for a one-to-one connection
-- has_many for a one-to-many connection among models
+- has_many for a many-to-many connection among models
 
 4. A Few Gems:
 - Using the Gemfile to Set up a RubyGem:
@@ -61,9 +60,12 @@ In this iteration we took take advantage of the many plugins and libraries avail
 5. Migrations
 Migrations were run to:
 - Add Fields to users
-- Create Post model
-- Enable devise to create users
-- Add user_id to Post
+- Create User model
+- Create Event model
+- Create Event_attending model
+- Add id for event to event_attending model
+- Add creator_id to event model
+- Add index on event_id in event attending model
 
 
 ## Prerequisites
@@ -83,12 +85,34 @@ Next we need to install dependencies and setup the database.
 Check that the console is working properly by running $ rails console in your terminal. 
 Run association tests in console to test for model connections.
 
+4. Run bundle install in the terminal to install gems and their dependencies.
+
+5. Run rails db:migrate to update the database.
+
+6. Run rails s or rails server in the terminal to start the server.
 
 ## 🔨 Setup <a name = "setup"></a>
 
 - To clone the repo to your local repository. Follow this steps
 - <code> git clone https://github.com/Rumbie-Mudzie7/private-events.git</code>
 - <code> cd private-events</code>
+
+
+## Testing
+The following gems were run and installed before implementing the rspec tests:
+
+  gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
+
+Find rspec tests in the spec/features directories:
+- sign_in_spec.rb
+- sign_up_spec.rb
+- sign_out_spec.rb
+- events_spec.rb
 
 
 ## Authors
@@ -117,4 +141,5 @@ Feel free to check the fork this repo and create pull request if you want to mak
 Give a ⭐️ if you like this project!
 
 ## :thumbsup: Acknowledgements
-Let's Build: A Twitter Clone With Ruby on Rails - Parts 1,2 and 3 by WebCrunch
+The Odin project Guide:
+https://www.theodinproject.com/courses/ruby-on-rails/lessons/
