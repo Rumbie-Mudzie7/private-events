@@ -98,6 +98,23 @@ Run association tests in console to test for model connections.
 - <code> cd private-events</code>
 
 
+## Testing
+The following gems were run and installed before implementing the rspec tests:
+
+  gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
+
+Find rspec tests in the spec/features directories:
+- sign_in_spec.rb
+- sign_up_spec.rb
+- sign_out_spec.rb
+- events_spec.rb
+
+
 ## Authors
 
 👤 **Rumbidzayi Mudziviri**

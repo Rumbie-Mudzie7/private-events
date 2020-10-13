@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.created_events.build(event_params)
-    
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -45,11 +45,11 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         @attendee.each do |att|
-          unless att.empty?
-            @user = User.find(att)
+          next if att.empty?
 
-            @event.event_attendees << @user unless @event.event_attendees.include?(@user)
-          end
+          @user = User.find(att)
+
+          @event.event_attendees << @user unless @event.event_attendees.include?(@user)
         end
 
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }

@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -69,7 +69,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
-  
+
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -77,7 +77,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
   end
-  
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
@@ -87,9 +87,9 @@ RSpec.configure do |config|
   end
 
   Capybara.javascript_driver = :selenium_chrome
-  end
+end
 
-  Shoulda::Matchers.configure do |config|
+Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
